@@ -73,6 +73,12 @@
                                 <span>Mata Pelajaran</span>
                             </a>
                         </li>
+                        <li class="sidebar-item {{ request()->is('dashboard/landing') ? 'active' : '' }}">
+                            <a href="{{ route('dashboard.landing.edit') }}" class="sidebar-link">
+                                <i class="bi bi-pencil-square"></i>
+                                <span>Kelola Landing Page</span>
+                            </a>
+                        </li>
                         @endif
 
                         {{-- ── AKADEMIK ── --}}

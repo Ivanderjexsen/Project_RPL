@@ -78,11 +78,13 @@
                         <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
                             Masuk
                         </button>
-                    </form>
-
-                    <div class="text-center mt-4 text-muted">
-                        <small>&copy; {{ date('Y') }} E-School - SMA Nusantara Bangsa</small>
-                    </div>
+                        </form>
+                            <div style="margin-top:12px;">
+                                <a href="{{ url('/') }}" class="btn btn-outline-secondary btn-block btn-lg mt-3">kembali</a>
+                            </div>
+                            <div class="text-center mt-4 text-muted">
+                                <small>&copy; {{ date('Y') }} E-School - SMA Nusantara Bangsa</small>
+                            </div>
 
                 </div>
             </div>

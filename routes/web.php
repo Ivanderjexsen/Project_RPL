@@ -12,8 +12,12 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\LaporanController;
 
-// ─── Halaman Login ───────────────────────────────────
-Route::get('/', [AuthController::class, 'index'])->name('login');
+// ─── Landing Page & Halaman Login ───────────────────
+Route::get('/', function () {
+    return view('landing');
+});
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -38,6 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('kelas', KelasController::class);
 
     Route::resource('jadwal', JadwalController::class);
+
+    // Kelola Landing Page (admin)
+    Route::get('/dashboard/landing', [App\Http\Controllers\LandingController::class, 'edit'])->name('dashboard.landing.edit');
+    Route::post('/dashboard/landing', [App\Http\Controllers\LandingController::class, 'update'])->name('dashboard.landing.update');
 
     Route::get('/nilai', [NilaiController::class, 'index'])->name('nilai.index');
 
